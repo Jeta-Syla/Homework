@@ -37,8 +37,6 @@
         const list = document.getElementById("list"),
           els = list.getElementsByTagName("li");
 
-        // -------------------------------
-        // Task 1: Analizo me debugger
         for (var i = 0, len = els.length; i < len; i++) {
           debugger; // hap debugger dhe shiko pse alert(i) gjithmonë tregon 5
           els[i].onclick = function() {
@@ -46,8 +44,8 @@
           };
         }
 
-        // -------------------------------
-        // Task 2: Closure (pa let)
+  
+
         for (var i = 0, len = els.length; i < len; i++) {
           (function(index) {
             els[index].onclick = function() {
@@ -56,8 +54,7 @@
           })(i);
         }
 
-        // -------------------------------
-        // Task 3: Përdor let
+    
         for (let i = 0, len = els.length; i < len; i++) {
           els[i].onclick = function() {
             alert("Task 3: " + (i + 1));
