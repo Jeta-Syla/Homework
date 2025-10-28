@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of friends</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Filter</h1>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <select id="users-select" class="custom-select">
+                    <option value="-1">Choose age</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-5 offset-sm-1">
+            <h3>Filter by age</h3>
+            <div id="res"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+const usersSelect = document.getElementById('users-select');
+const res = document.getElementById('res');
+
+let users = [
+ {id: 1, name: "John", age: "20"},
+ {id: 2, name: "Sasha", age: "30"},
+ {id: 3, name: "Bill", age: "40"},
+ {id: 4, name: "Ashley", age: "20"},
+ {id: 5, name: "Rachel", age: "40"},
+ {id: 6, name: "Tom", age: "30"},
+ {id: 7, name: "Steve", age: "30"},
+ {id: 8, name: "Jim", age: "40"},
+ {id: 9, name: "Willy", age: "20"}
+];
+
+// 1️⃣ Merr moshat unike
+const ages = [...new Set(users.map(u => u.age))];
+
+// 2️⃣ Mbush dropdown-in
+ages.forEach(age => {
+  const opt = document.createElement('option');
+  opt.value = age;
+  opt.textContent = age;
+  usersSelect.appendChild(opt);
+});
+
+// 3️⃣ Filtrimi kur zgjedh një moshë
+usersSelect.addEventListener('change', () => {
+  const selectedAge = usersSelect.value;
+  res.innerHTML = ''; // pastro rezultatet e mëparshme
+
+  if (selectedAge === '-1') return;
+
+  const filteredUsers = users.filter(u => u.age === selectedAge);
+
+  filteredUsers.forEach(u => {
+    const p = document.createElement('p');
+    p.textContent = u.name;
+    res.appendChild(p);
+  });
+});
+</script>
+</body>
+</html>
