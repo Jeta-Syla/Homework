@@ -42,10 +42,10 @@ let users = [
  {id: 9, name: "Willy", age: "20"}
 ];
 
-// 1️⃣ Merr moshat unike
+
 const ages = [...new Set(users.map(u => u.age))];
 
-// 2️⃣ Mbush dropdown-in
+
 ages.forEach(age => {
   const opt = document.createElement('option');
   opt.value = age;
@@ -53,7 +53,7 @@ ages.forEach(age => {
   usersSelect.appendChild(opt);
 });
 
-// 3️⃣ Filtrimi kur zgjedh një moshë
+
 usersSelect.addEventListener('change', () => {
   const selectedAge = usersSelect.value;
   res.innerHTML = ''; // pastro rezultatet e mëparshme
