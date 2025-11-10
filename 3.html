@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3 — Dynamic User Profile Builder</title>
+</head>
+<body>
+  <h2>🧩 Task 3 — Dynamic User Profile Builder</h2>
+  <p>Create and expand a user profile dynamically based on inputs below.</p>
+
+  <input id="keyInput" placeholder="Property name (e.g. age)">
+  <input id="valueInput" placeholder="Property value (e.g. 25)">
+  <button id="addBtn">Add Property</button>
+  
+  <pre id="profileOutput"></pre>
+
+  <script>
+    
+    let user = { name: "Student" };
+
+    document.getElementById("addBtn").addEventListener("click", function() {
+
+      const key = document.getElementById("keyInput").value;
+      const value = document.getElementById("valueInput").value;
+
+      const newUser = { ...user, [key]: value };
+
+      user = newUser;
+
+      
+      document.getElementById("profileOutput").innerText = JSON.stringify(user, null, 2);
+    });
+  </script>
+</body>
+</html>
