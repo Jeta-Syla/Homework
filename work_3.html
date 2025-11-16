@@ -37,14 +37,14 @@
         const list = document.getElementById("list"),
           els = list.getElementsByTagName("li");
 
+        
+      
         for (var i = 0, len = els.length; i < len; i++) {
           debugger; 
           els[i].onclick = function() {
             console.log("Task 1 value:", i);
           };
         }
-
-  
 
         for (var i = 0, len = els.length; i < len; i++) {
           (function(index) {
@@ -54,7 +54,6 @@
           })(i);
         }
 
-    
         for (let i = 0, len = els.length; i < len; i++) {
           els[i].onclick = function() {
             alert("Task 3: " + (i + 1));
@@ -64,4 +63,3 @@
     </div>
   </body>
 </html>
-
