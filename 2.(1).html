@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 2 — Combine Lists Into One</title>
+</head>
+<body>
+  <h2>✨ Task 2 — Combine Two Lists</h2>
+  <p>Enter two lists of words separated by commas and click "Combine".</p>
+
+  <textarea id="list1" placeholder="List 1: e.g. apple, banana, kiwi"></textarea>
+  <br><br>
+  <textarea id="list2" placeholder="List 2: e.g. orange, lemon, kiwi"></textarea>
+  <br><br>
+  <button id="combineBtn">Combine</button>
+
+  <p id="output"></p>
+
+  <script>
+    document.getElementById("combineBtn").addEventListener("click", function() {
+
+      
+      const arr1 = document.getElementById("list1").value.split(",");
+      const arr2 = document.getElementById("list2").value.split(",");
+
+      const combined = arr1.concat(arr2);
+
+      
+      document.getElementById("output").innerText = "Combined List: " + combined.join(", ");
+    });
+  </script>
+</body>
+</html>

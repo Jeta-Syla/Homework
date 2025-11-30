@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1 — Flexible Sum Calculator</title>
+</head>
+<body>
+  <h2>🧮 Task 1 — Flexible Sum Calculator</h2>
+  <p>Enter numbers separated by commas and click "Calculate".</p>
+  
+  <input type="text" id="numbersInput" placeholder="e.g. 2, 5, 10, 3">
+  <button id="calcBtn">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+   
+    function flexibleSum(...numbers) {
+      return numbers.reduce((total, num) => total + num, 0);
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', function() {
+      const input = document.getElementById('numbersInput').value.trim();
+
+      
+      if (!input) {
+        document.getElementById('result').textContent = "⚠️ Please enter some numbers.";
+        return;
+      }
+
+      
+      const numArray = input.split(',').map(n => Number(n.trim()));
+
+     
+      if (numArray.some(isNaN)) {
+        document.getElementById('result').textContent = "❌ Invalid input. Make sure all values are numbers.";
+        return;
+      }
+
+      
+      const total = flexibleSum(...numArray);
+      document.getElementById('result').textContent = `✅ The total is ${total}`;
+    });
+  </script>
+</body>
+</html>
